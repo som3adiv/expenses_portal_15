@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="home_menu_page" inherit_id="portal.portal_sidebar">
+        <xpath expr="//div[hasclass('o_portal_sidebar')]" position="inside">
+            <div class="dashboard">
+                <div class="dashboard-inner">
+                    <div class="frame-parent">
+                        <div class="frame-wrapper">
+                            <div class="oval-parent">
+                                <t t-if="user_image">
+                                    <!-- Display user's image if it exists -->
+                                    <img class="profile-icon" t-att-src="'data:img/png;base64,%s' % user_image" alt="User Image" />
+                                </t>
+                                <t t-else="">
+                                    <!-- Fallback to default image if no user image -->
+                                    <img class="profile-icon" src="/expenses_portal_15/static/src/img/profile@2x.png" alt="Default Profile" />
+                                </t>
+                                <div class="frame-container">
+                                    <!-- <div class="profile-parent">
+                                        <div class="div">4</div>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact">
+                            <!-- Display the dynamic user name here -->
+                            <h1 class="samantha"><t t-esc="user_name" /></h1>
+                            <!-- Display the dynamic user email here -->
+                            <div class="samanthaemailcom"><t t-esc="user_email" /></div>
+                        </div>
+                        <div class="navigation">
+                            <h2 class="dashboard1">Dashboard</h2>
+                            <h2 class="expenses">Expenses</h2>
+                            <h2 class="wallets">Wallets</h2>
+                            <h2 class="summary">Summary</h2>
+                            <h2 class="accounts">Accounts</h2>
+                            <h2 class="settings">Settings</h2>
+                        </div>
+                    </div>
+                </div>
+                <main class="content">
+                    <img class="background-content-icon" alt="" src="expenses_portal_15/static/src/img/background-content.svg" />
+                    <div class="main-content">
+                        <div class="frame-group">
+                            <div class="frame-div">
+                                <div class="expenses-parent">
+                                    <a class="expenses1">Expenses</a>
+                                    <div class="march-2020"><t t-esc="today_date" /></div>
+                                </div>
+                                <div class="frame-wrapper1">
+                                    <div class="frame-parent1">
+                                        <img class="frame-child" loading="lazy" alt="" src="expenses_portal_15/static/src/img/group-9@2x.png" />
+                                        <div class="group-3-copy-7-wrapper">
+                                            <img class="group-3-copy-7" loading="lazy" alt="" src="expenses_portal_15/static/src/img/group-3-copy-7.svg" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <img class="stats-icon" loading="lazy" alt="" src="expenses_portal_15/static/src/img/stats.svg" />
+                            <div class="frame-parent2">
+                                <div class="frame-parent3">
+                                    <div class="today-parent">
+                                        <div class="today">Today</div>
+                                        <div class="frame-wrapper1">
+                                            <img class="frame-item" alt="" src="expenses_portal_15/static/src/img/group-3.svg" />
+                                        </div>
+                                    </div>
+                                    <img class="path-icon" alt="" src="expenses_portal_15/static/src/img/path.svg" />
+                                </div>
+                                <div class="frame-parent4">
+                                    <div class="frame-div">
+                                        <div class="frame-parent6">
+                                            <div class="frame-parent7">
+                                                <div class="frame-parent8">
+                                                    <img class="frame-inner" loading="lazy" alt="" src="expenses_portal_15/static/src/img/group-4@2x.png" />
+                                                    <img class="frame-inner" loading="lazy" alt="" src="expenses_portal_15/static/src/img/group-4-1@2x.png" />
+                                                    <img class="frame-child1" loading="lazy" alt="" src="expenses_portal_15/static/src/img/group-4-2.svg" />
+                                                    <img class="frame-inner" loading="lazy" alt="" src="expenses_portal_15/static/src/img/group-4-3@2x.png" />
+                                                    <img class="frame-inner" loading="lazy" alt="" src="expenses_portal_15/static/src/img/group-4-4@2x.png" />
+                                                </div>
+                                                <div class="activity-items">
+                                                    <div class="activity-types">
+                                                        <div class="grocery">Grocery</div>
+                                                        <div class="pm-belanja">
+                                                            5:12 pm • Belanja di pasar
+                                                        </div>
+                                                    </div>
+                                                    <div class="food-types">
+                                                        <div class="transportation">Transportation</div>
+                                                        <div class="pm-belanja">5:12 pm • Naik bus umum</div>
+                                                    </div>
+                                                    <div class="food-types">
+                                                        <div class="housing">Housing</div>
+                                                        <div class="pm-belanja">5:12 pm • Bayar Listrik</div>
+                                                    </div>
+
+                                                    <div class="food-types">
+                                                        <div class="food-and-drink">Food and Drink</div>
+                                                        <div class="pm-belanja">5:12 pm • Makan Steak</div>
+                                                    </div>
+
+                                                    <div class="food-types">
+                                                        <div class="entertainment">Entertainment</div>
+                                                        <div class="pm-belanja">5:12 pm • Nonton Bioskop</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- <div class="monday-23-march">Monday, 23 March 2020</div> -->
+                                        </div>
+                                        <div class="activity-navigation">
+                                            <div class="div1">-<t t-esc="grocery_total" /></div>
+                                            <div class="wrapper">
+                                                <div class="div2">-<t t-esc="transportation_total" /></div>
+                                            </div>
+                                                <div class="div3">-<t t-esc="housing_total" /></div>
+                                            <div class="div4">-<t t-esc="food_total" /></div>
+                                            <div class="div5">-<t t-esc="entertainment_total" /></div>
+                                            <!-- <div class="wrapper">
+                                                <img class="frame-child2" loading="lazy" alt="" src="expenses_portal_15/static/src/img/group-3.svg" />
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                    <img class="path-icon" loading="lazy" alt="" src="expenses_portal_15/static/src/img/path.svg" />
+                                </div>
+                                <!-- <div class="frame-div">
+                                    <div class="frame-parent10">
+                                        <div class="frame-parent8">
+                                            <img class="frame-inner" loading="lazy" alt="" src="expenses_portal_15/static/src/img/group-4-3@2x.png" />
+                                            <img class="frame-inner" loading="lazy" alt="" src="expenses_portal_15/static/src/img/group-4-4@2x.png" />
+                                        </div>
+                                        <div class="activity-items">
+                                            <div class="food-types">
+                                                <div class="food-and-drink">Food and Drink</div>
+                                                <div class="pm-belanja">5:12 pm • Makan Steak</div>
+                                            </div>
+                                            <div class="food-types">
+                                                <div class="entertainment">Entertainment</div>
+                                                <div class="pm-belanja">5:12 pm • Nonton Bioskop</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="activity-navigation">
+                                        <div class="div4">-<t t-esc="food_total" /></div>
+                                        <div class="div5">-<t t-esc="entertainment_total" /></div>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right-content">
+                        <img class="rectangle-copy-2" alt="" src="expenses_portal_15/static/src/img/rectangle-copy-2.svg" />
+                        <img class="illustration-icon" loading="lazy" alt="" src="expenses_portal_15/static/src/img/illustration.svg" />
+                        <img class="illustration-icon1" loading="lazy" alt="" src="expenses_portal_15/static/src/img/illustration-1@2x.png" />
+                        <div class="spending-categories">
+                            <h3 class="where-your-money">Where your money go?</h3>
+                            <div class="category-items-parent">
+                                <div class="frame-div">
+                                    <div class="food-and-drinks">Food and Drinks</div>
+                                    <div class="image"><t t-esc="food_total" /></div>
+                                </div>
+                                <div class="category-icons">
+                                    <div class="rectangle" t-att-style="'width: %spx;' % (food_total / 1000)" />
+                                    <div class="rectangle-copy" t-att-style="'width: %spx;' % (food_total / 1000 )" />
+                                </div>
+                            </div>
+                            <div class="category-items-parent">
+                                <div class="frame-div">
+                                    <a class="shopping">Shopping</a>
+                                    <div class="image"><t t-esc="shopping_total" /></div>
+                                </div>
+                                <div class="category-icons">
+                                    <div class="rectangle" t-att-style="'width: %spx;' % (shopping_total / 1000)" />
+                                    <div class="rectangle-copy1" t-att-style="'width: %spx;' % (shopping_total / 1000)" />
+                                </div>
+                            </div>
+                            <div class="category-items-parent">
+                                <div class="frame-div">
+                                    <div class="housing1">Housing</div>
+                                    <div class="image"><t t-esc="housing_total" /></div>
+                                </div>
+                                <div class="category-icons">
+                                    <div class="rectangle" t-att-style="'width: %spx;' % (housing_total / 1000)" />
+                                    <div class="rectangle-copy2" t-att-style="'width: %spx;' % (housing_total / 1000)" />
+                                </div>
+                            </div>
+                            <div class="category-items-parent">
+                                <div class="frame-div">
+                                    <div class="transportation1">Transportation</div>
+                                   <div class="image"><t t-esc="transportation_total" /></div>
+                                </div>
+                                <div class="category-icons">
+                                    <div class="rectangle" t-att-style="'width: %spx;' % (transportation_total / 1000)" />
+                                    <div class="rectangle-copy3" t-att-style="'width: %spx;' % (transportation_total / 1000)" />
+                                </div>
+                            </div>
+                            <div class="category-items-parent">
+                                <div class="frame-div">
+                                    <div class="vehicle">Vehicle</div>
+                                    <div class="image"><t t-esc="vehicle_total" /></div>
+                                </div>
+                                <div class="category-icons">
+                                    <div class="rectangle" t-att-style="'width: %spx;' % (vehicle_total / 1000)" />
+                                    <div class="rectangle-copy2" t-att-style="'width: %spx;' % (vehicle_total / 1000)" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="rectangle-parent2">
+                            <img class="rectangle-icon" alt="" src="expenses_portal_15/static/src/img/rectangle.svg" />
+                            <div class="activity-types">
+                                <div class="save-more-money">Save more money</div>
+                                <div class="eiusmod-tempor-incid">
+                                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim.
+                                </div>
+                            </div>
+                            <button class="button">
+                                <img class="rectangle-icon1" alt="" src="expenses_portal_15/static/src/img/rectangle1.svg" />
+                                <div class="view-tips">VIEW TIPS</div>
+                            </button>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </xpath>
+    </template>
+</odoo>
