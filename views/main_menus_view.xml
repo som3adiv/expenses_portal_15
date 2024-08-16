@@ -9,7 +9,8 @@
                             <div class="oval-parent">
                                 <t t-if="user_image">
                                     <!-- Display user's image if it exists -->
-                                    <img class="profile-icon" t-att-src="'data:img/png;base64,%s' % user_image" alt="User Image" />
+                                    <!-- <img class="profile-icon" t-att-src="'data:img/png;base64,%s' % user_image" alt="User Image" /> -->
+                                    <img t-attf-src="data:image/png;base64,{{user_image}}" alt="avatar" style="width:60px; height:60px" class="image-avatar"/>
                                 </t>
                                 <t t-else="">
                                     <!-- Fallback to default image if no user image -->
