@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-    <template id="home_menu_page" inherit_id="portal.portal_sidebar">
+    <template id="home_menu_page" name="Menu Page">
         <xpath expr="//div[hasclass('o_portal_sidebar')]" position="inside">
             <div class="dashboard">
                 <div class="dashboard-inner">
@@ -13,7 +13,7 @@
                                 </t>
                                 <t t-else="">
                                     <!-- Fallback to default image if no user image -->
-                                    <img class="profile-icon" src="/expenses_portal_15/static/src/img/profile@2x.png" alt="Default Profile" />
+                                    <img class="profile-icon" src="expenses_portal_15/static/src/img/profile@2x.png" alt="Default Profile" />
                                 </t>
                                 <div class="frame-container">
                                     <!-- <div class="profile-parent">
@@ -108,13 +108,38 @@
                                             <!-- <div class="monday-23-march">Monday, 23 March 2020</div> -->
                                         </div>
                                         <div class="activity-navigation">
+                                            <t t-if="grocery_total">
                                             <div class="div1">-<t t-esc="grocery_total" /></div>
+                                            </t>
+                                            <t t-else="">
+                                                <div class="div1">0</div>
+                                            </t>
                                             <div class="wrapper">
+                                                <t t-if="transportation_total">
                                                 <div class="div2">-<t t-esc="transportation_total" /></div>
+                                                </t>
+                                                <t t-else="">
+                                                    <div class="div1">0</div>
+                                                </t>
                                             </div>
+                                            <t t-if="housing_total">
                                                 <div class="div3">-<t t-esc="housing_total" /></div>
-                                            <div class="div4">-<t t-esc="food_total" /></div>
-                                            <div class="div5">-<t t-esc="entertainment_total" /></div>
+                                            </t>
+                                            <t t-else="">
+                                                <div class="div1">0</div>
+                                            </t>
+                                            <t t-if="food_total">
+                                                <div class="div4">-<t t-esc="food_total" /></div>
+                                            </t>
+                                            <t t-else="">
+                                                <div class="div1">0</div>
+                                            </t>
+                                            <t t-if="entertainment_total">
+                                                <div class="div5">-<t t-esc="entertainment_total" /></div>
+                                            </t>
+                                            <t t-else="">
+                                                <div class="div1">0</div>
+                                            </t>
                                             <!-- <div class="wrapper">
                                                 <img class="frame-child2" loading="lazy" alt="" src="expenses_portal_15/static/src/img/group-3.svg" />
                                             </div> -->
@@ -221,5 +246,11 @@
                 </main>
             </div>
         </xpath>
+
+       <xpath expr="." position="inside">
+                        <link rel="stylesheet" href="/expenses_portal_15/static/src/css/home_menu_page.css"/>
+                    </xpath>
+
     </template>
 </odoo>
+

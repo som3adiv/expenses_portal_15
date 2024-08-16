@@ -28,7 +28,7 @@ class MenuController(http.Controller):
 
         # Calculate total amount for expenses related to the current user for today
         for expense in get_expenses_details:
-            if expense.date == today_date:
+            # if expense.date == today_date:
                 if expense.product_id.name == 'Food and Drinks':
                     food_total += expense.total_amount_company
 
