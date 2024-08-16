@@ -5,8 +5,10 @@ from datetime import date
 class MenuController(http.Controller):
     @http.route('/home', type="http", auth='public', website=True)
     def home_menu_submit(self, **kwargs):
+        user_id = int(kwargs.get('user_id', request.env.user.id)) 
+
         # Fetch the user object
-        user = request.env.user
+        user = request.env['res.users'].browse(user_id)
         user_name = user.name  # Retrieve the user's name
         user_email = user.email  # Retrieve the user's email
         user_image = user.image_1920  # Retrieve the user's image
@@ -29,26 +31,26 @@ class MenuController(http.Controller):
         # Calculate total amount for expenses related to the current user for today
         for expense in get_expenses_details:
             # if expense.date == today_date:
-                if expense.product_id.name == 'Food and Drinks':
-                    food_total += expense.total_amount_company
+            if expense.product_id.name == 'Food and Drinks':
+                food_total += expense.total_amount_company
 
-                elif expense.product_id.name == 'Shopping':
-                    shopping_total += expense.total_amount_company
+            elif expense.product_id.name == 'Shopping':
+                shopping_total += expense.total_amount_company
 
-                elif expense.product_id.name == 'Housing':
-                    housing_total += expense.total_amount_company
+            elif expense.product_id.name == 'Housing':
+                housing_total += expense.total_amount_company
 
-                elif expense.product_id.name == 'Transportation':
-                    transportation_total += expense.total_amount_company
+            elif expense.product_id.name == 'Transportation':
+                transportation_total += expense.total_amount_company
 
-                elif expense.product_id.name == 'Vehicle':
-                    vehicle_total += expense.total_amount_company
+            elif expense.product_id.name == 'Vehicle':
+                vehicle_total += expense.total_amount_company
 
-                elif expense.product_id.name == 'Grocery':
-                    grocery_total += expense.total_amount_company
+            elif expense.product_id.name == 'Grocery':
+                grocery_total += expense.total_amount_company
 
-                elif expense.product_id.name == 'Entertainment':
-                    entertainment_total += expense.total_amount_company
+            elif expense.product_id.name == 'Entertainment':
+                entertainment_total += expense.total_amount_company
 
         # Pass data to the template
         return request.render('expenses_portal_15.home_menu_page', {
@@ -62,5 +64,6 @@ class MenuController(http.Controller):
             'vehicle_total': vehicle_total,
             'grocery_total': grocery_total,
             'entertainment_total': entertainment_total,
-            'today_date': today_date
+            'today_date': today_date,
+            'image': user_image  # Use the image data directly
         })

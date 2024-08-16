@@ -7,15 +7,12 @@
                     <div class="frame-parent">
                         <div class="frame-wrapper">
                             <div class="oval-parent">
-                                <t t-if="user_image">
-                                    <!-- Display user's image if it exists -->
-                                    <!-- <img class="profile-icon" t-att-src="'data:img/png;base64,%s' % user_image" alt="User Image" /> -->
-                                    <img t-attf-src="data:image/png;base64,{{user_image}}" alt="avatar" style="width:60px; height:60px" class="image-avatar"/>
+                                <t t-if="image">
+                                        <img t-attf-src="data:image/png;base64,{{image}}" alt="avatar" style="width:60px; height:60px" class="image-avatar"/>
                                 </t>
                                 <t t-else="">
-                                    <!-- Fallback to default image if no user image -->
-                                    <img class="profile-icon" src="expenses_portal_15/static/src/img/profile@2x.png" alt="Default Profile" />
-                                </t>
+                                            <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar" style="width:60px; height:60px" class="image-avatar"/>
+                                        </t>
                                 <div class="frame-container">
                                     <!-- <div class="profile-parent">
                                         <div class="div">4</div>
