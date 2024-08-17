@@ -41,10 +41,17 @@
                     <div class="main-content">
                         <div class="frame-group">
                             <div class="frame-div">
-                                <div class="expenses-parent">
-                                    <a class="expenses1">Expenses</a>
-                                    <div class="march-2020"><t t-esc="today_date" /></div>
-                                </div>
+                                <form action="/home" method="GET">
+                                    <div class="expenses-parent">
+                                        <a class="expenses1">Expenses</a>
+                                        <div class="form-controls">
+                                        <input type="date" name="selected_date" class="dateview" t-att-value="today_date" />
+                                        <button class="load" type="submit">
+                                            <div class="view-load">Load</div>
+                                        </button>
+                                        </div>
+                                    </div>
+                                </form>
                                 <div class="frame-wrapper1">
                                     <div class="frame-parent1">
                                         <img class="frame-child" loading="lazy" alt="" src="expenses_portal_15/static/src/img/group-9@2x.png" />
@@ -58,11 +65,16 @@
                             <div class="frame-parent2">
                                 <div class="frame-parent3">
                                     <div class="today-parent">
-                                        <div class="today">Today</div>
+                                        <div class="today">
+                                            Today : <t t-if="selected_date"><t t-esc="date_to_view" /></t>
+                                            <t t-else="">
+                                                No date selected</t>
+                                        </div>
                                         <div class="frame-wrapper1">
                                             <img class="frame-item" alt="" src="expenses_portal_15/static/src/img/group-3.svg" />
                                         </div>
                                     </div>
+
                                     <img class="path-icon" alt="" src="expenses_portal_15/static/src/img/path.svg" />
                                 </div>
                                 <div class="frame-parent4">

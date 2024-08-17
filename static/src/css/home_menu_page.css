@@ -191,7 +191,19 @@
   align-items: flex-start;
   justify-content: flex-start;
   gap: 10px;
+  align-items: center;
+  justify-content: space-between;
 }
+
+.form-controls {
+    display: flex;
+    align-items: center;
+}
+
+.dateview {
+    margin-right: 10px;
+}
+
 .frame-child,
 .group-3-copy-7 {
   position: relative;
